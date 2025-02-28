@@ -1,0 +1,21 @@
+package frc.robot.Subsystems.Intake.IntakeWheels.States;
+
+import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.Constants.Constants;
+import frc.robot.Subsystems.Intake.IntakeWheels.iWheelsSubsystem;
+
+
+public class iIdleState extends Command {
+    
+    private iWheelsSubsystem intake = iWheelsSubsystem.getInstance();
+
+    public iIdleState() {
+        addRequirements(intake);
+    }
+
+    @Override
+    public void initialize() {
+        intake.setSpeed(Constants.IntakeConstants.idleSpeed);
+    }
+
+}
