@@ -59,5 +59,22 @@ public final class Constants {
     }
 
     public static double kLowerToScoreHeight =  Units.inchesToMeters(6);
+    // Additional constants
+    public static final double kIntakeMaxSpeed = 0.25; // Maximum speed of the intake
+    public static final double kIntakeMinSpeed = 0.1; // Minimum speed of the intake
+
+    // Method to calculate intake speed based on some input
+    public static double calculateIntakeSpeed(double input) {
+        // Example PID control calculation (simplified)
+        double error = input - kLowerToScoreHeight;
+        double speed = kIntakeKp * error + kIntakeKi * (error * error) + kIntakeKd * (error / 2);
+
+        // Clamp the speed to the min and max values
+        if (speed > kIntakeMaxSpeed) {
+            speed = kIntakeMaxSpeed;
+        } else if (speed < kIntakeMinSpeed) {
+            speed = kIntakeMinSpeed;
+        }
+
 
 }
