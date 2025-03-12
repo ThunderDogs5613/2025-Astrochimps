@@ -11,7 +11,7 @@ import edu.wpi.first.units.measure.Distance;
 
 import static edu.wpi.first.units.Units.*;
 
-public final class Constants {  
+public final class Constants {}  
 
     public final class DrivetrainConstants{
         public static final double RobotMaxSpeed = 14;
