@@ -11,19 +11,19 @@ import edu.wpi.first.units.measure.Distance;
 
 import static edu.wpi.first.units.Units.*;
 
-public final class Constants {
+public final class Constants {  
 
     public final class DrivetrainConstants{
-        public static final double RobotMaxSpeed = 11;
+        public static final double RobotMaxSpeed = 14;
     }
     public final class RobotConstants{
         public static final double kRobotMass = 50.0;
         public static final double kRobotWidth = 2.0;
-        public static final double kRobotLength = 3.0;
+        public static final double kRobotLength = 3.0; 
         public static final double kRobotDrag = 0.1;
         public static final double kRobotMomentOfInertia = 11.0;
-        public static final double kRobotMaxSpeed = 6.0;
-        public static final double kRobotMaxAcceleration = 3.0;
+        public static final double kRobotMaxSpeed = 10.0;
+        public static final double kRobotMaxAcceleration = 11.0;
     }
 
     public final class ElevatorConstants{
@@ -67,7 +67,7 @@ public final class Constants {
     public static double calculateIntakeSpeed(double input) {
         // Example PID control calculation (simplified)
         double error = input - kLowerToScoreHeight;
-        double speed = kIntakeKp * error + kIntakeKi * (error * error) + kIntakeKd * (error / 2);
+        double speed = kIntakeKp  + kIntakeKi  () + kIntakeKd  ( / 2);
 
         // Clamp the speed to the min and max values
         if (speed > kIntakeMaxSpeed) {
