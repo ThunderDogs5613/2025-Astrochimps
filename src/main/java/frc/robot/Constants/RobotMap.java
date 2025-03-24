@@ -17,4 +17,6 @@ public class RobotMap {
     public static final int INTAKE_WHEELS_MOTOR_ID = 8;
 
     public static final DutyCycle INTAKE_ARM_ENCODER_ID = null;
+
+    
 }

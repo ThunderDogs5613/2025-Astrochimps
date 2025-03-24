@@ -1,18 +1,18 @@
-package frc.robot.Subsystems.Intake.IntakeArm.States;
+package frc.robot.Subsystems.Intake.iArm.States;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants.Constants;
-import frc.robot.Constants.Constants.IntakeConstants.intakePos;
-import frc.robot.Subsystems.Intake.IntakeArm.iArmSubsystem;
+import frc.robot.Constants.Constants.ArmConstants.ArmPos;
+import frc.robot.Subsystems.Intake.iArm.iArmSubsystem;
 
 public class PositionState extends Command{
 
-    private intakePos position;
+    private ArmPos position;
     private double holdPosition;
 
 
   
-    public PositionState(intakePos position) {
+    public PositionState(ArmPos position) {
       addRequirements(iArmSubsystem.getInstance());  
   
       this.position = position;
@@ -26,25 +26,30 @@ public class PositionState extends Command{
       iArmSubsystem.enable();
 
       switch(position) {
-        case FLOOR :
-          iArmSubsystem.getInstance().setArmSetpoint(Constants.IntakeConstants.floor);
-          iArmSubsystem.getInstance().setFeedForward(0.02); 
+        case L1 :
+          iArmSubsystem.getInstance().setArmSetpoint(Constants.ArmConstants.l1);
+          //iArmSubsystem.getInstance().setFeedForward(0.02);
           break;
   
-        case AMP :
-          iArmSubsystem.getInstance().setArmSetpoint(Constants.IntakeConstants.amp);
-          iArmSubsystem.getInstance().setFeedForward(0.01);
+        case L2 :
+          iArmSubsystem.getInstance().setArmSetpoint(Constants.ArmConstants.l2);
+        //  iArmSubsystem.getInstance().setFeedForward(0.01);
           break;  
           
-        case SPEAKER :
-          iArmSubsystem.getInstance().setArmSetpoint(Constants.IntakeConstants.speaker);
-          iArmSubsystem.getInstance().setFeedForward(0.2);
+        case L3 :
+          iArmSubsystem.getInstance().setArmSetpoint(Constants.ArmConstants.l3);
+      //    iArmSubsystem.getInstance().setFeedForward(0.2);
           break;
-  
+
+        case STOW :
+          iArmSubsystem.getInstance().setArmSetpoint(Constants.ArmConstants.stow);
+        //  iArmSubsystem.getInstance().setFeedForward(0.2);
+          break;
+
         case HOLD :
         holdPosition = iArmSubsystem.getInstance().getIntakeArmPos();
         iArmSubsystem.getInstance().setArmSetpoint(holdPosition);
-        ArmSubsystem.getInstance().setFeedForward(0.0);
+       // iArmSubsystem.getInstance().setFeedForward(0.0);
           break;
       }
       iArmSubsystem.getInstance().enable();

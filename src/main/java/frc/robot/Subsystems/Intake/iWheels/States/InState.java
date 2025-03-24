@@ -1,9 +1,10 @@
-package frc.robot.Subsystems.Intake.IntakeWheels.States;
+package frc.robot.Subsystems.Intake.iWheels.States;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants.Constants;
-import frc.robot.Subsystems.Intake.IntakeWheels.iWheelsSubsystem;
-
+import frc.robot.Subsystems.Intake.iWheels.iWheelsSubsystem;
+import frc.robot.RobotContainer;
+import frc.robot.Robot;
 
 public class InState extends Command {
     
@@ -15,7 +16,7 @@ public class InState extends Command {
 
     @Override
     public void initialize() {
-        intake.setSpeed(Constants.IntakeConstants.inSpeed);
+        intake.setSpeed(0.25);
     }
 
 }

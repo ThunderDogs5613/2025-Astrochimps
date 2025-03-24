@@ -14,7 +14,7 @@ import static edu.wpi.first.units.Units.*;
 public final class Constants {
 
     public final class DrivetrainConstants{
-        public static final double RobotMaxSpeed = 11;
+        public static final double RobotMaxSpeed = 14;
     }
     public final class RobotConstants{
         public static final double kRobotMass = 50.0;
@@ -22,8 +22,8 @@ public final class Constants {
         public static final double kRobotLength = 3.0;
         public static final double kRobotDrag = 0.1;
         public static final double kRobotMomentOfInertia = 11.0;
-        public static final double kRobotMaxSpeed = 6.0;
-        public static final double kRobotMaxAcceleration = 3.0;
+        public static final double kRobotMaxSpeed = 10.0;
+        public static final double kRobotMaxAcceleration = 11.0;
     }
 
     public final class ElevatorConstants{
@@ -52,12 +52,84 @@ public final class Constants {
 
     }
 
-    public final class IntakeConstants{
-        public static final double kIntakeKp = 0;//5
-        public static final double kIntakeKi = 0;
-        public static final double kIntakeKd = 0;//
+    public final class ArmConstants{
+        public static final double kP = 0.1;
+        public static final double kI = 0.0;
+        public static final double kD = 0.0;
+
+        public static final double l1 = 0;
+        public static final double l2 = 0;
+        public static final double l3 = 0;
+        public static final double l4 = 0;
+        public static final double stow = 0;
+
+        public enum ArmPos {
+            L1, L2, L3, L4, STOW, HOLD;
+
+            public double getPosition() {
+                // TODO Auto-generated method stub
+                throw new UnsupportedOperationException("Unimplemented method 'getPosition'");
+            }
+        }
     }
 
-    public static double kLowerToScoreHeight =  Units.inchesToMeters(6);
+    public final class IntakeConstants {
+        public static final double kP = 0;//5
+        public static final double kI = 0;
+        public static final double kD = 0;//
 
+        public static final double speed = 0.25;
+    }
+
+    public static double kLowerToScoreHeight = Units.inchesToMeters(6);
+
+    // Additional constants 
+    public static final double kMaxSpeed = 3.0;
+    public static final double kMaxAcceleration = 3.0;
+    public static final double kMaxVoltage = 10.0;
+    public static final double kMaxAngularSpeed = 3.0;
+    public static final double kMaxAngularAcceleration = 3.0;
+    public static final double kMaxAngularVoltage = 10.0;
+    public static final double kMaxPosition = 3.0;
+    public static final double kMaxVelocity = 3.0;
+    public static final double kMaxCurrent = 3.0;
+    public static final double kMaxForce = 3.0;
+    public static final double kMaxPressure = 3.0;
+    public static final double kMaxFlow = 3.0;
+    public static final double kMaxTemperature = 3.0;
+    public static final double kMaxPower = 3.0;
+    public static final double kMaxEnergy = 3.0;
+    public static final double kMaxTorque = 3.0;
+    public static final double kMaxAngularCurrent = 3.0;
+    public static final double kMaxAngularPower = 3.0;
+    public static final double kMaxAngularEnergy = 3.0;
+    public static final double kMaxAngularTorque = 3.0;
+    public static final double kMaxAngularMomentum = 3.0;
+    public static final double kMaxAngularImpulse = 3.0;
+    public static final double kMaxAngularInertia = 3.0;
+    public static final double kMaxAngularStiffness = 3.0;
+    public static final double kMaxAngularDamping = 3.0;
+    public static final double kMaxAngularCompliance = 3.0;
+    public static final double kMaxAngularVelocity = 3.0;
+
+
+
+    // Method to set the speed
+    public static void setSpeed(double speed) {
+        // Code to set the speed of the intake/outtake mechanism
+        // This will depend on your specific robot control code
+    }
+
+    // Method to read the throttle value
+    public static double getThrottleValue() {
+        // Code to read the throttle value
+        // This will depend on your specific robot control code
+        return 0.0; // Placeholder value
+    }
+
+    // Method to control the arm using the throttle
+    public static void controlArmWithThrottle() {
+        double throttleValue = getThrottleValue();
+        setSpeed(throttleValue);
+    }
 }

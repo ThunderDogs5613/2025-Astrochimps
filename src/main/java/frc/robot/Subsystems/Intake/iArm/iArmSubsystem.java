@@ -1,6 +1,6 @@
 package frc.robot.Subsystems.Intake.iArm;
 
-import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.*;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 
@@ -15,20 +15,20 @@ public class iArmSubsystem extends SubsystemBase {
     private SparkMax motorIA;
     private DutyCycleEncoder encoder;
     //private RelativeEncoder encoder;
-    private PIDController armPID = new PIDController(Constants.IntakeConstants.kIntakeKp, Constants.IntakeConstants.kIntakeKi, Constants.IntakeConstants.kIntakeKd);
+    private PIDController armPID = new PIDController(Constants.IntakeConstants.kP, Constants.IntakeConstants.kI, Constants.IntakeConstants.kD);
 
-    public static iArmSubsystem instance;
+    private static iArmSubsystem instance;
+
+    private iArmSubsystem() {
     
-        public iArmSubsystem() {
-        
-    //
-          motorIA = new SparkMax(RobotMap.INTAKE_ARM_MOTOR_ID, MotorType.kBrushless);
-          encoder = new DutyCycleEncoder(RobotMap.INTAKE_ARM_ENCODER_ID); 
-          //encoder = motorIA.getEncoder();
-        }
-    
-        public static synchronized iArmSubsystem getInstance() {
-            if(instance == null){
+//
+      motorIA = new SparkMax(RobotMap.INTAKE_ARM_MOTOR_ID, MotorType.kBrushless);
+      encoder = new DutyCycleEncoder(RobotMap.INTAKE_ARM_ENCODER_ID); 
+      //encoder = motorIA.getEncoder();
+    }
+
+    public static synchronized iArmSubsystem getInstance() {
+        if(instance == null){
           instance = new iArmSubsystem();
         }
         return instance;
@@ -43,8 +43,7 @@ public class iArmSubsystem extends SubsystemBase {
     } 
 
     public double getIntakeArmPos() {
-    //return encoder.getAbsolutePosition();
-      return 0.0;
+      return encoder.get();
       //return encoder.getPosition();
     }
     
