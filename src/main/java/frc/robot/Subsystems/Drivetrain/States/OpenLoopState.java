@@ -20,4 +20,4 @@ public class OpenLoopState extends Command {
             
         DrivetrainSubsystem.getInstance().setArcade(throttle, rotation);
     }
-}
+} 
