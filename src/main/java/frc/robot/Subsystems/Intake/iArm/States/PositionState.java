@@ -56,6 +56,7 @@ public class PositionState extends Command{
   
     public void execute() {
       System.out.println(iArmSubsystem.getInstance().getIntakeArmPos());
+      System.out.println("Position state");
     }
   
     @Override
