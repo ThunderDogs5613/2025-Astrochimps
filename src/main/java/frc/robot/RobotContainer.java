@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandGenericHID;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Commands.AutoCommand;
 import frc.robot.Commands.RunElevator;
+import frc.robot.Commands.RunArm;
 import frc.robot.Constants.*;
 import frc.robot.Subsystems.Drivetrain.DrivetrainSubsystem;
 import frc.robot.Subsystems.Drivetrain.States.OpenLoopState;
@@ -53,11 +54,13 @@ public class RobotContainer {
   private void setDefaultCommands() {
     CommandScheduler.getInstance().setDefaultCommand(drive, new OpenLoopState());
     CommandScheduler.getInstance().setDefaultCommand(iarm, new PrintState());
+    autoChooser.setDefaultOption("default", new AutoCommand());
   }
 
   
   private void configureBindings(){
     elevator.setDefaultCommand(new RunElevator(elevator, driveStick));
+    // iArm.setDefaultCommand(new RunArm(iarm, driveStick));
     // Trigger test = driveController.button(ControllerMap.DriveController.Button.B3);
 
     // test.whileTrue(

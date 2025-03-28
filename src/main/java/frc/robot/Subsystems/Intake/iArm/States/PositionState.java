@@ -51,12 +51,11 @@ public class PositionState extends Command{
        // iArmSubsystem.getInstance().setFeedForward(0.0);
           break;
       }
-      iArmSubsystem.getInstance().enable();
+      iArmSubsystem.getInstance();
+      iArmSubsystem.enable();
     }
   
     public void execute() {
-      System.out.println(iArmSubsystem.getInstance().getIntakeArmPos());
-      System.out.println("Position state");
     }
   
     @Override

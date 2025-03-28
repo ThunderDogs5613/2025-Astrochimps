@@ -22,9 +22,7 @@ public class PrintState extends Command {
   @Override
   public void execute() {
     position = iArmSubsystem.getInstance().getIntakeArmPos();
-    System.out.println(position);
-    System.out.println("Arm Position"); }
-
+  }
 
   @Override
   public void end(boolean interrupted) {}

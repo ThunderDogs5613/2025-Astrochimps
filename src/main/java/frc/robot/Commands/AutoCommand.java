@@ -16,6 +16,7 @@ public class AutoCommand extends Command{
     @Override
     public void initialize() {
         timer.restart();
+        System.out.println("Auto init");
     }
 
     @Override

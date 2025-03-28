@@ -21,7 +21,7 @@ public final class Constants {
   
 
     public static final class DrivetrainConstants {
-        public static final double RobotMaxSpeed = 40.0;
+        public static final double RobotMaxSpeed = 0.7;
     }
     final class RobotConstants {
         public static final double kRobotMass = 50.0;
@@ -65,10 +65,10 @@ public final class Constants {
         public static final double kI = 0.0;
         public static final double kD = 0.0;
 
-        public static final double l1 = 0;
-        public static final double l2 = 0;
-        public static final double l3 = 0;
-        public static final double l4 = 0;
+        public static final double l1 = 1;
+        public static final double l2 = 2;
+        public static final double l3 = 3;
+        public static final double l4 = 4;
         public static final double stow = 0;
 
         public static final double kArmMaxSpeed = 1.0;
@@ -83,7 +83,7 @@ public final class Constants {
         public static enum ArmPos{
             L1, L2, L3, L4, STOW, HOLD;
         }
-        public static final double kP = 0;//5
+        public static final double kP = 5;//5
         public static final double kI = 0;
         public static final double kD = 0;//
     public static double kLowerToScoreHeight =  Units.inchesToMeters(6);
