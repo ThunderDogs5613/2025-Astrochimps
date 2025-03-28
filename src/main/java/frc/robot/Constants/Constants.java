@@ -21,7 +21,7 @@ public final class Constants {
   
 
     public static final class DrivetrainConstants {
-        public static final double RobotMaxSpeed = 30.0;
+        public static final double RobotMaxSpeed = 40.0;
     }
     final class RobotConstants {
         public static final double kRobotMass = 50.0;
