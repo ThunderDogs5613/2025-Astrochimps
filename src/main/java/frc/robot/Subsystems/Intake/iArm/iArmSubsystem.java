@@ -68,4 +68,9 @@ public class iArmSubsystem extends SubsystemBase {
         setPower(armPID.calculate(getMeasurement()));
       }
     }
+
+    public void setFeedForward(double d) {
+      // TODO Auto-generated method stub
+      throw new UnsupportedOperationException("Unimplemented method 'setFeedForward'");
+    }
 }

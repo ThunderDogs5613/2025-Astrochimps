@@ -3,7 +3,7 @@ package frc.robot.Constants;
 import edu.wpi.first.math.util.Units;
 
 public final class IntakeConstants {
-    public static final double kIntakeKp = 0; // 5
+    public static final double kIntakeKp = 5; // 5
     public static final double kIntakeKi = 0;
     public static final double kIntakeKd = 0; // 
 
@@ -33,7 +33,7 @@ public final class IntakeConstants {
 
     // Method to control the intake using buttons B6, B7, and B8
     public static void controlIntake(boolean buttonB6, boolean buttonB7, boolean buttonB8, double currentHeight) {
-        double intakeSpeed = 0;
+        double intakeSpeed = .25;
 
         if (buttonB6) {
             // Button B6 pressed: Increase intake speed

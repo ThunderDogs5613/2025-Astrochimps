@@ -11,12 +11,19 @@ import edu.wpi.first.units.measure.Distance;
 
 import static edu.wpi.first.units.Units.*;
 
-public final class Constants {}  
+public final class Constants {    
 
-    public final class DrivetrainConstants{
-        public static final double RobotMaxSpeed = 14;
+    // public static final class ElevatorConstants {
+    //     public static final double kElevatorKp = 0.1;
+    //     public static final double kElevatorKi = 0.0;
+    //     public static final double kElevatorKd = 0.0;
+    // }
+  
+
+    public static final class DrivetrainConstants {
+        public static final double RobotMaxSpeed = 14.0;
     }
-    public final class RobotConstants{
+    final class RobotConstants {
         public static final double kRobotMass = 50.0;
         public static final double kRobotWidth = 2.0;
         public static final double kRobotLength = 3.0; 
@@ -25,8 +32,9 @@ public final class Constants {}
         public static final double kRobotMaxSpeed = 10.0;
         public static final double kRobotMaxAcceleration = 11.0;
     }
+ 
 
-    public final class ElevatorConstants{
+    public static final class ElevatorConstants{
             public static final double kElevatorKp = 5;//5
     public static final double kElevatorKi = 0;
     public static final double kElevatorKd = 0;//
@@ -52,7 +60,7 @@ public final class Constants {}
 
     }
 
-    public final class ArmConstants{
+    public static final class ArmConstants{
         public static final double kP = 0.1;
         public static final double kI = 0.0;
         public static final double kD = 0.0;
@@ -63,17 +71,18 @@ public final class Constants {}
         public static final double l4 = 0;
         public static final double stow = 0;
 
+        public static final double kArmMaxSpeed = 1.0;
+        public static final double kArmMinHeight = 0.5;
+
         public enum ArmPos {
             L1, L2, L3, L4, STOW, HOLD;
-
-            public double getPosition() {
-                // TODO Auto-generated method stub
-                throw new UnsupportedOperationException("Unimplemented method 'getPosition'");
-            }
         }
     }
 
-    public final class IntakeConstants {
+    public static final class IntakeConstants {
+        public static enum ArmPos{
+            L1, L2, L3, L4, STOW, HOLD;
+        }
         public static final double kP = 0;//5
         public static final double kI = 0;
         public static final double kD = 0;//
@@ -86,7 +95,11 @@ public final class Constants {}
     public static double calculateIntakeSpeed(double input) {
         // Example PID control calculation (simplified)
         double error = input - kLowerToScoreHeight;
-        double speed = kIntakeKp  + kIntakeKi  () + kIntakeKd  ( / 2);
+        // double speed = kIntakeKp  + kIntakeKi  () + kIntakeKd  (2);
+        double speed = kP  + kI + kD;
+
+        //create PIDController obj in subsys
+
 
         // Clamp the speed to the min and max values
         if (speed > kIntakeMaxSpeed) {
@@ -96,10 +109,9 @@ public final class Constants {}
         }
 
 
-        public static final double speed = 0.25;
+         double Speed = 0.25;
+         return Speed;
     }
-
-    public static double kLowerToScoreHeight = Units.inchesToMeters(6);
 
     // Additional constants 
     public static final double kMaxSpeed = 3.0;
@@ -150,4 +162,5 @@ public final class Constants {}
         double throttleValue = getThrottleValue();
         setSpeed(throttleValue);
     }
+}
 }

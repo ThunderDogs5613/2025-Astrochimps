@@ -2,36 +2,35 @@ package frc.robot.Subsystems.Intake.iArm.States;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants.Constants;
-import frc.robot.Constants.Constants.ArmConstants.ArmPos;
 import frc.robot.Subsystems.Intake.iArm.iArmSubsystem;
-
+import frc.robot.Constants.Constants.IntakeConstants;
 public class PositionState extends Command{
 
-    private ArmPos position;
-    private double holdPosition;
-
-
-  
-    public PositionState(ArmPos position) {
-      addRequirements(iArmSubsystem.getInstance());  
-  
-      this.position = position;
-    }
-  
-    @Override
-    public void initialize() {
-  
-      holdPosition = iArmSubsystem.getInstance().getIntakeArmPos();
-
-      iArmSubsystem.enable();
-
-      switch(position) {
-        case L1 :
-          iArmSubsystem.getInstance().setArmSetpoint(Constants.ArmConstants.l1);
-          //iArmSubsystem.getInstance().setFeedForward(0.02);
-          break;
-  
-        case L2 :
+            private IntakeConstants.ArmPos position;
+            private double holdPosition;
+        
+        
+          
+            public PositionState(IntakeConstants.ArmPos position) {
+              addRequirements(iArmSubsystem.getInstance());  
+          
+              this.position = position;
+            }
+          
+            @Override
+            public void initialize() {
+          
+              holdPosition = iArmSubsystem.getInstance().getIntakeArmPos();
+        
+              iArmSubsystem.enable();
+        
+              switch(position) {
+                case L1 :
+              iArmSubsystem.getInstance().setArmSetpoint(Constants.ArmConstants.l1);
+              //iArmSubsystem.getInstance().setFeedForward(0.02);
+              break;
+      
+            case L2 :
           iArmSubsystem.getInstance().setArmSetpoint(Constants.ArmConstants.l2);
         //  iArmSubsystem.getInstance().setFeedForward(0.01);
           break;  
